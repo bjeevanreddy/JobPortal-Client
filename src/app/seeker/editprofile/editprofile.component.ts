@@ -46,7 +46,6 @@ export class EditprofileComponent implements OnInit {
         this.EmpProfileForm.patchValue({
           _id: this.seekerservice.getpayload().id,
           username: this.userdata.username,
-          password: this.userdata.password,
           mail: this.userdata.mail,
           gender: this.userdata.gender,
           mobile: this.userdata.mobile,
@@ -62,6 +61,9 @@ export class EditprofileComponent implements OnInit {
           department: this.userdata.department,
           reasonsforleaving: this.userdata.reasonsforleaving
     
+        });
+        this.EmpProfileForm.setValue({
+          password: this.userdata.password
         });
 
       }, (error) => {

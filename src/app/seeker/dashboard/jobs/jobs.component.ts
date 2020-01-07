@@ -48,7 +48,7 @@ headers=['Company Name','Job Role','Skills','Job Type','Experience',''];
          setTimeout(()=>{
           this.appliedmessage='';
           this.getjobs();
-         },1000);
+         },2000) ;
         }else{
           this.alreadyapplied=response.message; 
           setTimeout(()=>{
