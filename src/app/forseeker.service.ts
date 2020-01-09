@@ -37,6 +37,39 @@ export class ForseekerService {
     console.log(httpOptions);
     return this.httpCli.get(`http://localhost:3000/private/employees/getjobs/${this.getpayload().id}`,httpOptions);
   }
+  searchbycompany(companyname)
+  {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json, text/plain, */*',
+         'Content-Type':'application/json',
+        'Authorization': 'Bearer '+this.gettoken()
+      })
+    };
+    return this.httpCli.get(`http://localhost:3000/private/employees/companyname/${companyname}`,httpOptions);
+  }
+  searchbyrole(jobrole:any)
+  {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json, text/plain, */*',
+         'Content-Type':'application/json',
+        'Authorization': 'Bearer '+this.gettoken()
+      })
+    };
+    return this.httpCli.get(`http://localhost:3000/private/employees/jobrole/${jobrole}`,httpOptions);
+  }
+  searchlatestjobs()
+  {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json, text/plain, */*',
+         'Content-Type':'application/json',
+        'Authorization': 'Bearer '+this.gettoken()
+      })
+    };
+    return this.httpCli.get(`http://localhost:3000/private/employees/latest`,httpOptions);
+  }
    applyjob(jobs:any)
   {
     const httpOptions = {

@@ -10,6 +10,7 @@ import { LoginComponent } from './Auth/login/login.component';
 import {ForseekerService} from './forseeker.service';
 import {ForrecruiterService} from './forrecruiter.service';
 import { TokenInterceptorService } from './token-interceptor.service';
+//import { SearchComponent } from './seeker/search/search.component';
 //import { EditprofileComponent } from './seeker/editprofile/editprofile.component';
 //import { PostjobComponent } from './recruiter/rdashboard/postjob/postjob.component';
 //import { RdashboardComponent } from './recruiter/rdashboard/rdashboard.component';
@@ -30,6 +31,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     CardDirective,
     routingComponents,
     LoginComponent,
+   // SearchComponent,
     //EditprofileComponent,
     //PostjobComponent,
     // RdashboardComponent,

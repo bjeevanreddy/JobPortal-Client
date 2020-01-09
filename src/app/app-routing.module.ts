@@ -16,6 +16,7 @@ import { EmpregisterComponent } from './Auth/regis/empregister/empregister.compo
 import {PostjobComponent} from './recruiter/postjob/postjob.component';
 import { RecruiterregisterComponent } from './Auth/regis/recruiterregister/recruiterregister.component';
 import {EditprofileComponent} from './seeker/editprofile/editprofile.component';
+import {SearchComponent} from './seeker/search/search.component';
 const routes: Routes = [
   {path:'',redirectTo:'login/emp_login',pathMatch:'full'}, 
   //for default pageload..
@@ -42,6 +43,9 @@ const routes: Routes = [
   {path:'seeker/editprofile',component:EditprofileComponent},
   {path:'recruiter/rprofile',component:RprofileComponent},
   {
+    path:'seeker/search',component:SearchComponent
+  },
+  {
     path:'recruiter/postjob',component:PostjobComponent
   }
   
@@ -67,5 +71,6 @@ export const routingComponents=[RegisComponent,
                                 AppliedEmployeesComponent,
                                 RprofileComponent,
                                 PostjobComponent,
-                                EditprofileComponent
+                                EditprofileComponent,
+                                SearchComponent
                               ];
