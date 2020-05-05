@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-@Injectable({
-  providedIn: 'root'
-})
+const PRIVATE='https://naukaries.herokuapp.com/private/';
+const PUBLIC='https://naukaries.herokuapp.com/public/';
 export class ForrecruiterService {
 
   constructor(private httpCli:HttpClient) { }
   login(body:any){
-    return this.httpCli.post('http://localhost:3000/public/recruiter/login',body
+    return this.httpCli.post(`${PUBLIC}recruiter/login`,body
     ,{
       observe:'body',
       withCredentials:true,
@@ -16,7 +15,7 @@ export class ForrecruiterService {
     );
   }
   recruiter_register(body:any){
-    return this.httpCli.post('http://localhost:3000/public/addrecruiter',body,
+    return this.httpCli.post(`${PUBLIC}addrecruiter`,body,
     {
       observe:'body',
       headers:new HttpHeaders().append('Content-Type','application/json')
@@ -33,7 +32,7 @@ export class ForrecruiterService {
 //       })
 //     };
 //     console.log(httpOptions);
-//     return this.httpCli.get(`http://localhost:3000/private/employees/getjobs/${this.getpayload().id}`,httpOptions);
+//     return this.httpCli.get(`${PRIVATE}employees/getjobs/${this.getpayload().id}`,httpOptions);
 //   }
 //    applyjob(jobs:any)
 //   {
@@ -45,7 +44,7 @@ export class ForrecruiterService {
 //     };
 //     let job_id:any=jobs.jobDetails._id;
 //     let emp_id:any=this.getpayload().id;
-//     return this.httpCli.get(`http://localhost:3000/private/employees/apply/${emp_id}/${job_id}`,httpOptions);
+//     return this.httpCli.get(`${PRIVATE}employees/apply/${emp_id}/${job_id}`,httpOptions);
 //   }
   getpostedjobs()
   {
@@ -55,7 +54,7 @@ export class ForrecruiterService {
         'Authorization': this.gettoken()
       })
     };
-    return this.httpCli.get(`http://localhost:3000/private/recruiters/jobs/${this.getpayload().id}`,httpOptions);
+    return this.httpCli.get(`${PRIVATE}recruiters/jobs/${this.getpayload().id}`,httpOptions);
   }
   getseekers()
   {
@@ -65,7 +64,7 @@ export class ForrecruiterService {
         'Authorization': this.gettoken()
       })
     };
-    return this.httpCli.get(`http://localhost:3000/private/recruiters/seekers/${this.getpayload().id}`,httpOptions);
+    return this.httpCli.get(`${PRIVATE}recruiters/seekers/${this.getpayload().id}`,httpOptions);
   }
 gettoken()
 {
@@ -79,7 +78,7 @@ postjob(body:any)
       'Authorization': this.gettoken()
     })
   };
-  return this.httpCli.post('http://localhost:3000/private/recruiters/addjob',body,httpOptions);
+  return this.httpCli.post(`${PRIVATE}recruiters/addjob`,body,httpOptions);
 }
 getpayload()
 {
@@ -94,7 +93,7 @@ getpayload()
 //       'Authorization': `Bearer${this.gettoken()}`
 //     })
 //   };
-//   return this.httpCli.get(`http://localhost:3000/private/employees/profile/${this.getpayload().id}`,httpOptions);
+//   return this.httpCli.get(`${PRIVATE}employees/profile/${this.getpayload().id}`,httpOptions);
 // }
 logout()
 {

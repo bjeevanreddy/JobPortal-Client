@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment } from '../environments/environment';
-@Injectable({
-  providedIn: 'root'
-})
-export class ForseekerService {
 
+const PRIVATE='https://naukaries.herokuapp.com/private/';
+const PUBLIC='https://naukaries.herokuapp.com/public/';
+export class ForseekerService {
+ 
   constructor(private httpCli:HttpClient) { }
   
   login(body:any){
-    return this.httpCli.post('http://localhost:3000/public/employee/login',body
+    return this.httpCli.post(`${PUBLIC}employee/login`,body
     ,{
       observe:'body',
       withCredentials:true,
@@ -18,7 +18,7 @@ export class ForseekerService {
     );
   }
   employee_register(body:any){
-    return this.httpCli.post('http://localhost:3000/public/addemployee',body,
+    return this.httpCli.post(`${PUBLIC}addemployee`,body,
     {
       observe:'body',
       headers:new HttpHeaders().append('Content-Type','application/json')
@@ -35,7 +35,7 @@ export class ForseekerService {
       })
     };
     console.log(httpOptions);
-    return this.httpCli.get(`http://localhost:3000/private/employees/getjobs/${this.getpayload().id}`,httpOptions);
+    return this.httpCli.get(`${PRIVATE}employees/getjobs/${this.getpayload().id}`,httpOptions);
   }
   searchbycompany(companyname)
   {
@@ -46,7 +46,7 @@ export class ForseekerService {
         'Authorization': 'Bearer '+this.gettoken()
       })
     };
-    return this.httpCli.get(`http://localhost:3000/private/employees/companyname/${companyname}`,httpOptions);
+    return this.httpCli.get(`${PRIVATE}employees/companyname/${companyname}`,httpOptions);
   }
   searchbyrole(jobrole:any)
   {
@@ -57,7 +57,7 @@ export class ForseekerService {
         'Authorization': 'Bearer '+this.gettoken()
       })
     };
-    return this.httpCli.get(`http://localhost:3000/private/employees/jobrole/${jobrole}`,httpOptions);
+    return this.httpCli.get(`${PRIVATE}employees/jobrole/${jobrole}`,httpOptions);
   }
   searchlatestjobs()
   {
@@ -68,7 +68,7 @@ export class ForseekerService {
         'Authorization': 'Bearer '+this.gettoken()
       })
     };
-    return this.httpCli.get(`http://localhost:3000/private/employees/latest`,httpOptions);
+    return this.httpCli.get(`${PRIVATE}employees/latest`,httpOptions);
   }
    applyjob(jobs:any)
   {
@@ -80,7 +80,7 @@ export class ForseekerService {
     };
     let job_id:any=jobs.jobDetails._id;
     let emp_id:any=this.getpayload().id;
-    return this.httpCli.get(`http://localhost:3000/private/employees/apply/${emp_id}/${job_id}`,httpOptions);
+    return this.httpCli.get(`${PRIVATE}employees/apply/${emp_id}/${job_id}`,httpOptions);
   }
   getappliedjobs()
   {
@@ -90,11 +90,11 @@ export class ForseekerService {
         'Authorization': this.gettoken()
       })
     };
-    return this.httpCli.get(`http://localhost:3000/private/employees/appliedlist/${this.getpayload().username}`,httpOptions);
+    return this.httpCli.get(`${PRIVATE}employees/appliedlist/${this.getpayload().username}`,httpOptions);
   }
   uploadprofilepic(fd:any)
   {
-    return this.httpCli.post(`http://localhost:3000/private/employee/uploadpicture/${this.getpayload().id}`,fd);
+    return this.httpCli.post(`${PRIVATE}employee/uploadpicture/${this.getpayload().id}`,fd);
    
   }
 gettoken()
@@ -108,7 +108,7 @@ getpayload()
 }
 Empupdateprofile(body:any)
 {
-  return this.httpCli.put('http://localhost:3000/private/employees/editprofile',body,
+  return this.httpCli.put(`${PRIVATE}employees/editprofile`,body,
   {
     
       observe:'body',
@@ -124,7 +124,7 @@ getprofile()
       'Authorization': `Bearer${this.gettoken()}`
     })
   };
-  return this.httpCli.get(`http://localhost:3000/private/employees/profile/${this.getpayload().id}`,httpOptions);
+  return this.httpCli.get(`${PRIVATE}employees/profile/${this.getpayload().id}`,httpOptions);
 }
 logout()
 {
