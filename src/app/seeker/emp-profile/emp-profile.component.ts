@@ -51,7 +51,6 @@ export class EmpProfileComponent implements OnInit {
     formdata.append('profileimage', this.profilepic);
     this.seekerservice.uploadprofilepic(formdata).subscribe((res) => {
       if (res) {
-
         this.successmsg = res
       }
       setTimeout(() => {

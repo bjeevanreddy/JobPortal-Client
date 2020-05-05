@@ -4,12 +4,10 @@ import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { CardDirective } from './card.directive';
-import {HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import {HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './Auth/login/login.component';
 import {ForseekerService} from './forseeker.service';
 import {ForrecruiterService} from './forrecruiter.service';
-import { TokenInterceptorService } from './token-interceptor.service';
 //import { SearchComponent } from './seeker/search/search.component';
 //import { EditprofileComponent } from './seeker/editprofile/editprofile.component';
 //import { PostjobComponent } from './recruiter/rdashboard/postjob/postjob.component';
@@ -28,7 +26,6 @@ import { TokenInterceptorService } from './token-interceptor.service';
   declarations: [
     AppComponent,
     NavbarComponent,
-    CardDirective,
     routingComponents,
     LoginComponent,
    // SearchComponent,
@@ -48,11 +45,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [ForseekerService,ForrecruiterService,{
-    provide:HTTP_INTERCEPTORS,
-    useClass:TokenInterceptorService,
-    multi:true
-  }],
+  providers: [ForseekerService,ForrecruiterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

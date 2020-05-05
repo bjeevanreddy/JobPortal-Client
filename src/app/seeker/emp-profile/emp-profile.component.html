@@ -46,7 +46,7 @@
         <h1>{{profileinfo.username}}</h1>
       </div>
       <hr>
-      <div class="col-sm-12 text-center p-2" *ngIf="picexists;else defaultavatar">
+      <div class="col-sm-12 text-center p-2" *ngIf="!picexists;else defaultavatar">
         <img src="{{profileinfo.profileimage}}" alt={{profileinfo.username}} id="pimage">
         <!-- <form>
                   <input type="file" name="image" (change)="selectimage($event)"/>
@@ -54,7 +54,7 @@
                 <button type="button" (click)="upload()">upload</button> -->
       </div>
       <ng-template #defaultavatar>
-        <img src="assets/avatar.jpg" alt="avatar" id="pimage">
+        <img src="../../../assets/avatar.jpg" alt="avatar" id="pimage">
       </ng-template>
       <input type="file" name="image" (change)="selectimage($event)" />
       <button type="button" (click)="upload()">upload</button>

@@ -4,6 +4,9 @@ import {environment } from '../environments/environment';
 
 const PRIVATE='https://naukaries.herokuapp.com/private/';
 const PUBLIC='https://naukaries.herokuapp.com/public/';
+@Injectable({
+  providedIn: 'root'
+})
 export class ForseekerService {
  
   constructor(private httpCli:HttpClient) { }

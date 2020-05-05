@@ -8,7 +8,7 @@
         <a class="nav-link" type="button" style="cursor:pointer" [ngClass]="tabset ? 'active':'disabled'" (click)="employeeregisterpage()">Employee</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " style="cursor:pointer" [ngClass]="tabset?active:inactive" (click)="recruiterregisterpage()">Recruiter</a>
+        <a class="nav-link " style="cursor:pointer" [ngClass]="tabset?'active':'inactive'" (click)="recruiterregisterpage()">Recruiter</a>
       </li>
     </ul>
     <router-outlet></router-outlet>

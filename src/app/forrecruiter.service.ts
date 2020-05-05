@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+
 const PRIVATE='https://naukaries.herokuapp.com/private/';
 const PUBLIC='https://naukaries.herokuapp.com/public/';
+@Injectable({
+  providedIn: 'root'
+})
 export class ForrecruiterService {
 
-  constructor(private httpCli:HttpClient) { }
+constructor(private httpCli:HttpClient) { }
   login(body:any){
     return this.httpCli.post(`${PUBLIC}recruiter/login`,body
     ,{
