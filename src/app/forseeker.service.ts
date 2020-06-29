@@ -37,7 +37,7 @@ export class ForseekerService {
         'Authorization': 'Bearer '+this.gettoken()
       })
     };
-    console.log(httpOptions);
+    // console.log(httpOptions);
     return this.httpCli.get(`${PRIVATE}employees/getjobs/${this.getpayload().id}`,httpOptions);
   }
   searchbycompany(companyname)
