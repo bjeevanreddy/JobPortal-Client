@@ -17,11 +17,13 @@ import {PostjobComponent} from './recruiter/postjob/postjob.component';
 import { RecruiterregisterComponent } from './Auth/regis/recruiterregister/recruiterregister.component';
 import {EditprofileComponent} from './seeker/editprofile/editprofile.component';
 import {SearchComponent} from './seeker/search/search.component';
+import {HomepageComponent} from './Auth/homepage/homepage.component'
 const routes: Routes = [
-  {path:'',redirectTo:'login/emp_login',pathMatch:'full'}, 
+  {path:'',redirectTo:'home',pathMatch:'full'}, 
   //for default pageload..
   //pathmatch can be "prefix" or "full"..
   //when path is empty we use "full",if we want to add to some prefix we then equalise pathMatch="prefix"
+  {path:'home',component:HomepageComponent},
   {path:'login',component:LoginComponent,children:[
     {path:'emp_login',component:EmploginComponent},
     {path:'rec_login',component:RecruiterloginComponent}
@@ -72,5 +74,6 @@ export const routingComponents=[RegisComponent,
                                 RprofileComponent,
                                 PostjobComponent,
                                 EditprofileComponent,
-                                SearchComponent
+                                SearchComponent,
+                                HomepageComponent
                               ];

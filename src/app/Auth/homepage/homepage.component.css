@@ -1,0 +1,20 @@
+.carousel-item img{
+    width: 100%;
+    height: 500px;
+}
+
+
+footer{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin: 2px;
+ color: #2d2d2d;
+ font-size: larger;
+ font-weight: 500;
+ font-family: 'Times New Roman', Times, serif;
+}
+
+nav{
+    margin-bottom: 2px;;
+}
