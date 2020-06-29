@@ -23,6 +23,7 @@ export class EmpProfileComponent implements OnInit {
         this.profileinfo = response;
         //console.log(JSON.stringify(response.profileimage));
         let image:any = response.profileimage;
+        this.profilepic=this.profileinfo.profileimage;
         console.log(this.profileinfo);
         if (image != "") {
           this.picexists = true;
@@ -55,7 +56,7 @@ export class EmpProfileComponent implements OnInit {
       }
       setTimeout(() => {
         this.successmsg = '';
-        // this.getprofile();
+        this.getprofile();
       }, 2000);
 
       // setTimeout(()=>{

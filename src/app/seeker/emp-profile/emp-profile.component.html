@@ -47,7 +47,7 @@
       </div>
       <hr>
       <div class="col-sm-12 text-center p-2" *ngIf="!picexists;else defaultavatar">
-        <img src="{{profileinfo.profileimage}}" alt={{profileinfo.username}} id="pimage">
+        <img src={{profilepic}} alt={{profileinfo.username}} id="pimage">
         <!-- <form>
                   <input type="file" name="image" (change)="selectimage($event)"/>
                 </form>
